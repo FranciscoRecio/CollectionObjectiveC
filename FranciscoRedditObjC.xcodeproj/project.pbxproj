@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84159A572057528E00526A28 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84159A562057528E00526A28 /* ImageCell.m */; };
 		84C3B0E520508D5D009A3E0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B0E420508D5D009A3E0C /* AppDelegate.m */; };
 		84C3B0E820508D5D009A3E0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B0E720508D5D009A3E0C /* ViewController.m */; };
 		84C3B0EB20508D5D009A3E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C3B0E920508D5D009A3E0C /* Main.storyboard */; };
 		84C3B0ED20508D5D009A3E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C3B0EC20508D5D009A3E0C /* Assets.xcassets */; };
 		84C3B0F020508D5D009A3E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C3B0EE20508D5D009A3E0C /* LaunchScreen.storyboard */; };
 		84C3B0F320508D5D009A3E0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B0F220508D5D009A3E0C /* main.m */; };
+		84C3B0FA20508D71009A3E0C /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B0F920508D71009A3E0C /* NetworkService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84159A552057528E00526A28 /* ImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		84159A562057528E00526A28 /* ImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		84C3B0E020508D5D009A3E0C /* FranciscoRedditObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranciscoRedditObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C3B0E320508D5D009A3E0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84C3B0E420508D5D009A3E0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		84C3B0EF20508D5D009A3E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C3B0F120508D5D009A3E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C3B0F220508D5D009A3E0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84C3B0F920508D71009A3E0C /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		84C3B0FB20508D92009A3E0C /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				84C3B0EE20508D5D009A3E0C /* LaunchScreen.storyboard */,
 				84C3B0F120508D5D009A3E0C /* Info.plist */,
 				84C3B0F220508D5D009A3E0C /* main.m */,
+				84C3B0F920508D71009A3E0C /* NetworkService.m */,
+				84C3B0FB20508D92009A3E0C /* NetworkService.h */,
+				84159A552057528E00526A28 /* ImageCell.h */,
+				84159A562057528E00526A28 /* ImageCell.m */,
 			);
 			path = FranciscoRedditObjC;
 			sourceTree = "<group>";
@@ -143,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C3B0E820508D5D009A3E0C /* ViewController.m in Sources */,
+				84159A572057528E00526A28 /* ImageCell.m in Sources */,
 				84C3B0F320508D5D009A3E0C /* main.m in Sources */,
+				84C3B0FA20508D71009A3E0C /* NetworkService.m in Sources */,
 				84C3B0E520508D5D009A3E0C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
