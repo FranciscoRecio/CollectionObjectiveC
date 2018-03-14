@@ -12,14 +12,29 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
+@property NSInteger numPics;
+@property NSMutableArray *images;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _numPics = 10;
     
+    for (NSInteger i = 0; i < _numPics; i += 1) {
+        [NetworkService getImage:i success:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_images addObject:image];
+                NSLog(@"Added one");
+                [self.collectionView reloadData];
+            });
+        } failure:^(NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Image error");
+            });
+        }];
+    }
     //[self.collectionView reloadData];
 }
 
@@ -29,21 +44,18 @@
     static NSString *cellIdentifier = @"imageCell";
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [NetworkService getImage:indexPath.row success:^(UIImage *image) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imageView.image = image;
-        });
-    } failure:^(NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.backgroundColor = [UIColor blueColor];
-        });
-    }];
+    if(_images.count > indexPath.row) {
+        cell.imageView.image = _images[indexPath.row];
+    } else {
+        cell.imageView.backgroundColor = [UIColor blueColor];
+    }
     
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    
+    return _numPics;
 }
 
 

@@ -15,7 +15,7 @@
 @implementation NetworkService
 
 +(void)getImage:(NSInteger)number success:(void (^)(UIImage *))success failure:(void (^)(NSError *))failure {
-    NSString* urlStr = [NSString stringWithFormat:@"https://unsplash.it/320/100?image=%ld", number];
+    NSString *urlStr = [NSString stringWithFormat:@"https://unsplash.it/320/100?image=%ld", number];
     NSURL *url = [NSURL URLWithString:urlStr];
     
     NSURLSession *session = [NSURLSession sharedSession];
