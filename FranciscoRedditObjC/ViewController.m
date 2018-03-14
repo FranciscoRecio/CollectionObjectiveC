@@ -13,19 +13,22 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSInteger numPics;
-@property NSMutableArray *images;
+@property (atomic, retain) NSMutableArray *images;
 @end
 
 @implementation ViewController
+@synthesize images;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _numPics = 10;
     
+    images = [[NSMutableArray alloc] init];
+    //Will add out of order because I'm not setting the position
     for (NSInteger i = 0; i < _numPics; i += 1) {
         [NetworkService getImage:i success:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [_images addObject:image];
+                [images addObject:image];
                 NSLog(@"Added one");
                 [self.collectionView reloadData];
             });
@@ -44,18 +47,18 @@
     static NSString *cellIdentifier = @"imageCell";
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if(_images.count > indexPath.row) {
-        cell.imageView.image = _images[indexPath.row];
-    } else {
-        cell.imageView.backgroundColor = [UIColor blueColor];
-    }
+    //if(_images.count > indexPath.row) {
+        cell.imageView.image = images[indexPath.row];
+    //} else {
+    //    cell.imageView.backgroundColor = [UIColor blueColor];
+    //}
     
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _numPics;
+    return images.count;
 }
 
 
